@@ -10,7 +10,7 @@ function appendToDisplay(value) {
     }
 
     // Hentikan animasi saat input angka
-    displayText.style.animation = 'none';
+    displayText.style.animation = 'none'; 
 }
 
 function clearDisplay() {
@@ -30,7 +30,8 @@ function updateDisplayWithAnimation(text) {
             i++;
         } else {
             clearInterval(typingInterval);
-            displayText.style.animation = 'marquee 10s linear infinite'; // Mulai marquee setelah mengetik
+            // Hanya mulai marquee jika sudah selesai mengetik
+            displayText.style.animation = 'marquee 10s linear infinite'; 
         }
     }, 100); // Kecepatan mengetik (100ms per karakter)
 }
@@ -52,6 +53,6 @@ function calculate() {
         result = "Error";
     }
 
-    updateDisplayWithAnimation(result); // Tampilkan hasil dengan animasi
+    // Tampilkan hasil dengan animasi
+    updateDisplayWithAnimation(result); 
 }
- 
