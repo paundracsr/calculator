@@ -29,8 +29,8 @@ body {
     position: relative;
     display: flex;
     align-items: center; /* Vertikal tengah */
-    justify-content: flex-end; /* Teks rata kanan */
-    padding: 10px 20px; /* Menambahkan padding horizontal */
+    justify-content: center; /* Teks rata tengah */
+    padding: 10px; /* Menambahkan padding */
     font-size: 32px;
     color: white;
 }
@@ -39,6 +39,7 @@ body {
 #display-text {
     white-space: nowrap;
     display: inline-block;
+    text-align: center; /* Rata tengah untuk teks */
 }
 
 /* Marquee Animation */
