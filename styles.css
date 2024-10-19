@@ -18,8 +18,8 @@ body {
 
 #display {
     width: 100%;
-    height: 70px; /* Ukuran lebih besar untuk tampilan iPhone */
-    font-size: 48px; /* Ukuran font lebih besar */
+    height: 70px; /* Ukuran tetap */
+    font-size: 32px; /* Ukuran font lebih kecil */
     text-align: right;
     border: none;
     margin-bottom: 20px;
@@ -27,7 +27,11 @@ body {
     border-radius: 15px;
     background-color: #2a2a2a; /* Latar belakang input */
     color: #ffffff; /* Warna teks putih */
+    overflow: hidden; /* Menghindari teks terpotong */
+    white-space: nowrap; /* Mencegah teks baru baris */
+    text-overflow: ellipsis; /* Tampilkan ellipsis jika teks terpotong */
 }
+
 
 .buttons {
     display: grid;
