@@ -1,23 +1,24 @@
 function appendToDisplay(value) {
-    const display = document.getElementById('display');
-    display.value += value;
+    document.getElementById("display").value += value;
 }
 
 function clearDisplay() {
-    const display = document.getElementById('display');
-    display.value = '';
+    document.getElementById("display").value = '';
 }
 
 function calculate() {
-    const display = document.getElementById('display');
-    try {
-        display.value = eval(display.value);
-    } catch {
-        display.value = 'Error';
-    }
-}
+    const display = document.getElementById("display");
+    const expression = display.value;
 
-function showRomanticMessage() {
-    const display = document.getElementById('display');
-    display.value = "Being with you is heaven.";
+    if (expression.includes('+')) {
+        display.value = "being with you is a heaven";
+    } else if (expression.includes('*')) {
+        display.value = "love you";
+    } else if (expression.includes(':')) {
+        display.value = "here with me";
+    } else if (expression.includes('-')) {
+        display.value = "emmmuahh";
+    } else {
+        display.value = "Error"; // Jika tidak ada operasi yang dikenali
+    }
 }
