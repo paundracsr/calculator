@@ -14,7 +14,7 @@ function calculate() {
         display.value = "being with you is a heaven";
     } else if (expression.includes('*')) {
         display.value = "love you";
-    } else if (expression.includes(':')) {
+    } else if (expression.includes('/')) {
         display.value = "here with me";
     } else if (expression.includes('-')) {
         display.value = "emmmuahh";
