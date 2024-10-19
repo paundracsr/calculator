@@ -39,7 +39,7 @@ function calculate() {
     // Menampilkan hasil dengan animasi
     displayResult.style.animation = 'none'; // Hentikan animasi sebelumnya
     displayResult.textContent = result; // Tampilkan hasil
-    displayResult.style.animation = 'marquee 5s linear infinite'; // Atur animasi marquee
+    displayResult.style.animation = 'marquee 15s linear infinite'; // Atur animasi marquee
 
     // Putar musik
     const audio = document.getElementById("audio");
