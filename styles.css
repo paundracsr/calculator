@@ -4,13 +4,13 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #121212; /* Latar belakang gelap */
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .calculator {
     background-color: #1e1e1e; /* Warna latar kalkulator */
-    border-radius: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 30px; /* Sudut lebih bulat */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     padding: 20px;
     width: 90%; /* Menyesuaikan dengan layar HP */
     max-width: 400px; /* Ukuran maksimum */
@@ -18,13 +18,13 @@ body {
 
 #display {
     width: 100%;
-    height: 60px;
-    font-size: 36px; /* Ukuran font lebih besar untuk tampilan HP */
+    height: 70px; /* Ukuran lebih besar untuk tampilan iPhone */
+    font-size: 48px; /* Ukuran font lebih besar */
     text-align: right;
     border: none;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 15px;
     background-color: #2a2a2a; /* Latar belakang input */
     color: #ffffff; /* Warna teks putih */
 }
@@ -32,28 +32,32 @@ body {
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 15px; /* Jarak antar tombol lebih besar */
 }
 
 button {
-    height: 60px; /* Ukuran tombol lebih besar */
-    font-size: 24px; /* Ukuran font lebih besar */
+    height: 70px; /* Ukuran tombol lebih besar */
+    font-size: 28px; /* Ukuran font lebih besar */
     border: none;
-    border-radius: 10px;
-    background-color: #ff8c00; /* Warna oranye */
+    border-radius: 15px; /* Sudut tombol lebih bulat */
+    background-color: #ff9500; /* Warna oranye */
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.1s; /* Tambahkan efek transformasi */
 }
 
 button:hover {
-    background-color: #e67e22; /* Warna oranye gelap saat hover */
+    background-color: #e68a00; /* Warna oranye gelap saat hover */
+}
+
+button:active {
+    transform: scale(0.95); /* Efek penekanan tombol */
 }
 
 .equal {
-    background-color: #ff5722; /* Warna oranye untuk tombol sama dengan */
+    background-color: #ff3b30; /* Warna oranye untuk tombol sama dengan */
 }
 
 .equal:hover {
-    background-color: #e64a19; /* Warna oranye gelap saat hover */
+    background-color: #e63946; /* Warna oranye gelap saat hover */
 }
