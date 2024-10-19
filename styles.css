@@ -16,7 +16,7 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Bayangan kalkulator */
     padding: 20px; /* Padding di dalam kalkulator */
     width: 90%; /* Menyesuaikan dengan layar */
-    max-width: 400px; /* Ukuran maksimum */
+    max-width: 450px; /* Ukuran maksimum */
     display: flex; /* Menggunakan flexbox */
     flex-direction: column; /* Mengatur tampilan kalkulator menjadi kolom */
     align-items: center; /* Memusatkan item di tengah horizontal */
@@ -32,20 +32,21 @@ body {
     position: relative; /* Untuk posisi elemen anak */
     display: flex; /* Menggunakan flexbox di dalam display */
     flex-direction: column; /* Menyusun elemen anak secara vertikal */
-    justify-content: center; /* Memusatkan teks secara horizontal */
+    justify-content: center; /* Memusatkan teks secara vertical */
     padding: 10px; /* Menambahkan padding */
 }
 
 /* Display Input and Result Styling */
 #display-input {
-    font-size: 32px; /* Ukuran font untuk input */
+    font-size: 36px; /* Ukuran font untuk input lebih besar */
     color: white; /* Warna teks putih */
     text-align: right; /* Rata kanan untuk input */
     margin-bottom: 5px; /* Jarak antara input dan hasil */
+    white-space: nowrap; /* Mencegah teks baru baris */
 }
 
 #display-result {
-    font-size: 24px; /* Ukuran font untuk hasil */
+    font-size: 28px; /* Ukuran font untuk hasil lebih kecil dari input */
     color: #ff9500; /* Warna oranye untuk hasil */
     white-space: nowrap; /* Mencegah teks baru baris */
     overflow: hidden; /* Menghindari teks terpotong */
@@ -67,14 +68,15 @@ body {
     display: grid; /* Menggunakan grid untuk tombol */
     grid-template-columns: repeat(4, 1fr); /* Empat kolom */
     gap: 15px; /* Jarak antar tombol */
+    width: 100%; /* Lebar penuh untuk grid */
 }
 
 /* Button Styling */
 button {
-    height: 75px; /* Tinggi tombol */
+    height: 70px; /* Tinggi tombol */
     font-size: 28px; /* Ukuran font tombol */
     border: none; /* Tanpa border */
-    border-radius: 20px; /* Sudut tombol lebih bulat */
+    border-radius: 15px; /* Sudut tombol lebih bulat */
     background-color: #ff9500; /* Warna oranye */
     color: white; /* Warna teks putih */
     cursor: pointer; /* Kursor berubah saat hover */
@@ -107,4 +109,21 @@ button:nth-child(4) {
 
 .equal:hover {
     background-color: #d9362a; /* Warna lebih gelap saat hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    /* Menyesuaikan ukuran font untuk perangkat kecil */
+    #display-input {
+        font-size: 28px; /* Ukuran font lebih kecil di ponsel */
+    }
+
+    #display-result {
+        font-size: 24px; /* Ukuran font lebih kecil di ponsel */
+    }
+
+    button {
+        height: 60px; /* Mengurangi tinggi tombol di ponsel */
+        font-size: 24px; /* Ukuran font tombol lebih kecil */
+    }
 }
