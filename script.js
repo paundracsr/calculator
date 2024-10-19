@@ -1,31 +1,28 @@
 function appendToDisplay(value) {
-    document.getElementById("display").value += value;
+    const display = document.getElementById("display");
+    display.value += value;
 }
 
 function clearDisplay() {
-    document.getElementById("display").value = '';
-    updateMarquee(''); // Reset marquee
+    const display = document.getElementById("display");
+    display.value = '';
+    display.style.animation = 'none'; // Hentikan animasi
 }
 
-function updateMarquee(text) {
-    const animatedText = document.getElementById('animatedText');
-    animatedText.textContent = ''; // Clear previous content
+function updateDisplayWithAnimation(text) {
+    const display = document.getElementById("display");
+    display.value = ''; // Reset display sebelum mulai animasi
 
     let i = 0;
     const typingInterval = setInterval(() => {
         if (i < text.length) {
-            animatedText.textContent += text.charAt(i);
+            display.value += text.charAt(i); // Animasi ketik
             i++;
         } else {
             clearInterval(typingInterval);
-            startMarquee(); // Start marquee after typing animation
+            display.style.animation = 'marquee 10s linear infinite'; // Mulai marquee
         }
-    }, 100); // Typing speed
-}
-
-function startMarquee() {
-    const marquee = document.getElementById('marqueeDisplay');
-    marquee.style.animation = 'scrollText 10s linear infinite';
+    }, 100); // Kecepatan mengetik
 }
 
 function calculate() {
@@ -45,5 +42,5 @@ function calculate() {
         result = "Error";
     }
 
-    updateMarquee(result); // Display the result in marquee
+    updateDisplayWithAnimation(result); // Tampilkan hasil dengan animasi
 }
