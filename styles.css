@@ -30,7 +30,7 @@ body {
     display: flex;
     align-items: center; /* Vertikal tengah */
     justify-content: flex-end; /* Teks rata kanan */
-    padding: 10px;
+    padding: 10px 20px; /* Menambahkan padding horizontal */
     font-size: 32px;
     color: white;
 }
@@ -66,22 +66,26 @@ button {
     background-color: #ff9500;
     color: white;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s; /* Tambahkan transisi bayangan */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk tombol */
 }
 
 button:hover {
     background-color: #e08900;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Bayangan lebih dalam saat hover */
 }
 
 button:active {
     transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Mengurangi bayangan saat ditekan */
 }
 
+/* Warna tombol untuk operasi */
 button:nth-child(1),
 button:nth-child(2),
 button:nth-child(3),
 button:nth-child(4) {
-    background-color: #636366;
+    background-color: #636366; /* Warna gelap untuk operasi */
 }
 
 .equal {
