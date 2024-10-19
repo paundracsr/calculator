@@ -1,40 +1,48 @@
 function appendToDisplay(value) {
-    const displayText = document.getElementById("display-text");
+    const displayInput = document.getElementById("display-input");
+    
     // Jika display berisi "0", ganti dengan nilai baru
-    if (displayText.textContent === '0') {
-        displayText.textContent = value;
+    if (displayInput.textContent === '0') {
+        displayInput.textContent = value;
     } else {
-        displayText.textContent += value;
+        displayInput.textContent += value;
     }
 }
 
 function clearDisplay() {
-    const displayText = document.getElementById("display-text");
-    displayText.textContent = '0'; // Reset display ke '0'
+    const displayInput = document.getElementById("display-input");
+    const displayResult = document.getElementById("display-result");
+    displayInput.textContent = '0'; // Reset display ke '0'
+    displayResult.textContent = ''; // Hapus hasil
 }
 
 function calculate() {
-    const displayText = document.getElementById("display-text");
-    const expression = displayText.textContent;
+    const displayInput = document.getElementById("display-input");
+    const displayResult = document.getElementById("display-result");
+    const expression = displayInput.textContent;
 
     let result;
-    // Hitung hasil berdasarkan ekspresi yang diinput
-    try {
-        result = eval(expression); // Gunakan eval untuk menghitung hasil
-    } catch (e) {
-        displayText.textContent = "Error"; // Tampilkan error jika terjadi kesalahan
-        return;
+
+    // Cek operator dan set hasil
+    if (expression.includes('+')) {
+        result = "Being with you is a heaven";
+    } else if (expression.includes('*')) {
+        result = "Love you";
+    } else if (expression.includes('/')) {
+        result = "Here with me";
+    } else if (expression.includes('-')) {
+        result = "Emmmuahh";
+    } else {
+        result = "Error"; // Jika tidak ada operasi yang dikenali
     }
 
-    // Menampilkan hasil
-    displayText.style.animation = 'none'; // Hentikan animasi sebelumnya
-    displayText.textContent = result; // Tampilkan hasil perhitungan
+    // Menampilkan hasil dengan animasi
+    displayResult.style.animation = 'none'; // Hentikan animasi sebelumnya
+    displayResult.textContent = result; // Tampilkan hasil
+    displayResult.style.animation = 'marquee 5s linear infinite'; // Atur animasi marquee
 
     // Putar musik
     const audio = document.getElementById("audio");
     audio.currentTime = 0; // Mulai dari awal
     audio.play(); // Putar audio
-
-    // Mulai animasi marquee
-    displayText.style.animation = 'marquee 5s linear infinite'; // Atur durasi dan jenis animasi
 }
