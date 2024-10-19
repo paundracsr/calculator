@@ -20,7 +20,6 @@ body {
     display: flex; /* Menggunakan flexbox */
     flex-direction: column; /* Mengatur tampilan kalkulator menjadi kolom */
     align-items: center; /* Memusatkan item di tengah horizontal */
-    justify-content: center; /* Memusatkan item di tengah vertikal */
 }
 
 /* Display Styling */
@@ -32,19 +31,25 @@ body {
     overflow: hidden; /* Menghindari teks terpotong */
     position: relative; /* Untuk posisi elemen anak */
     display: flex; /* Menggunakan flexbox di dalam display */
-    align-items: center; /* Memusatkan teks secara vertikal */
+    flex-direction: column; /* Menyusun elemen anak secara vertikal */
     justify-content: center; /* Memusatkan teks secara horizontal */
     padding: 10px; /* Menambahkan padding */
-    font-size: 32px; /* Ukuran font */
-    color: white; /* Warna teks putih */
-    margin: 10px 0; /* Menambahkan margin vertikal untuk jarak atas dan bawah */
 }
 
-/* Display Text Styling */
-#display-text {
+/* Display Input and Result Styling */
+#display-input {
+    font-size: 32px; /* Ukuran font untuk input */
+    color: white; /* Warna teks putih */
+    text-align: right; /* Rata kanan untuk input */
+    margin-bottom: 5px; /* Jarak antara input dan hasil */
+}
+
+#display-result {
+    font-size: 24px; /* Ukuran font untuk hasil */
+    color: #ff9500; /* Warna oranye untuk hasil */
     white-space: nowrap; /* Mencegah teks baru baris */
-    display: inline-block; /* Menjaga teks tetap dalam satu baris */
-    text-align: center; /* Rata tengah untuk teks */
+    overflow: hidden; /* Menghindari teks terpotong */
+    text-align: center; /* Rata tengah untuk hasil */
 }
 
 /* Marquee Animation */
