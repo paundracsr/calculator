@@ -1,23 +1,27 @@
 function appendToDisplay(value) {
     const displayText = document.getElementById("display-text");
-    if (displayText.textContent === '0') {
+    const currentText = displayText.textContent;
+
+    // Jika display berisi 0, ganti dengan input baru
+    if (currentText === '0') {
         displayText.textContent = value;
     } else {
         displayText.textContent += value;
     }
+
+    // Hentikan animasi saat input angka
+    displayText.style.animation = 'none';
 }
 
 function clearDisplay() {
     const displayText = document.getElementById("display-text");
     displayText.textContent = '0'; // Reset ke nilai awal
     displayText.style.animation = 'none'; // Hentikan animasi
-    void displayText.offsetWidth; // Trik untuk mereset animasi
-    displayText.style.animation = 'marquee 10s linear infinite'; // Mulai ulang animasi marquee
 }
 
 function updateDisplayWithAnimation(text) {
     const displayText = document.getElementById("display-text");
-    displayText.textContent = ''; // Reset sebelum animasi
+    displayText.textContent = ''; // Kosongkan display sebelum mengetik
 
     let i = 0;
     const typingInterval = setInterval(() => {
@@ -26,9 +30,9 @@ function updateDisplayWithAnimation(text) {
             i++;
         } else {
             clearInterval(typingInterval);
-            displayText.style.animation = 'marquee 10s linear infinite'; // Mulai marquee
+            displayText.style.animation = 'marquee 10s linear infinite'; // Mulai marquee setelah mengetik
         }
-    }, 100); // Kecepatan mengetik
+    }, 100); // Kecepatan mengetik (100ms per karakter)
 }
 
 function calculate() {
