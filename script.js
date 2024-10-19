@@ -4,21 +4,46 @@ function appendToDisplay(value) {
 
 function clearDisplay() {
     document.getElementById("display").value = '';
+    updateMarquee(''); // Reset marquee
+}
+
+function updateMarquee(text) {
+    const animatedText = document.getElementById('animatedText');
+    animatedText.textContent = ''; // Clear previous content
+
+    let i = 0;
+    const typingInterval = setInterval(() => {
+        if (i < text.length) {
+            animatedText.textContent += text.charAt(i);
+            i++;
+        } else {
+            clearInterval(typingInterval);
+            startMarquee(); // Start marquee after typing animation
+        }
+    }, 100); // Typing speed
+}
+
+function startMarquee() {
+    const marquee = document.getElementById('marqueeDisplay');
+    marquee.style.animation = 'scrollText 10s linear infinite';
 }
 
 function calculate() {
     const display = document.getElementById("display");
     const expression = display.value;
 
+    let result;
     if (expression.includes('+')) {
-        display.value = "being with you is a heaven";
+        result = "Being with you is a heaven";
     } else if (expression.includes('*')) {
-        display.value = "love you";
+        result = "Love you";
     } else if (expression.includes('/')) {
-        display.value = "here with me";
+        result = "Here with me";
     } else if (expression.includes('-')) {
-        display.value = "emmmuahh";
+        result = "Emmmuahh";
     } else {
-        display.value = "Error"; // Jika tidak ada operasi yang dikenali
+        result = "Error";
     }
+
+    updateMarquee(result); // Display the result in marquee
 }
