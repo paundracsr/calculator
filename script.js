@@ -1,33 +1,38 @@
 function appendToDisplay(value) {
     const display = document.getElementById("display");
-    display.value += value;
+    display.textContent += value;
 }
 
 function clearDisplay() {
     const display = document.getElementById("display");
-    display.value = '';
+    display.textContent = '0'; // Reset display
     display.style.animation = 'none'; // Hentikan animasi
 }
 
 function updateDisplayWithAnimation(text) {
     const display = document.getElementById("display");
-    display.value = ''; // Reset display sebelum mulai animasi
+    display.textContent = ''; // Reset sebelum animasi
 
     let i = 0;
     const typingInterval = setInterval(() => {
         if (i < text.length) {
-            display.value += text.charAt(i); // Animasi ketik
+            display.textContent += text.charAt(i); // Animasi ketik
             i++;
         } else {
             clearInterval(typingInterval);
-            display.style.animation = 'marquee 10s linear infinite'; // Mulai marquee
+            startMarqueeAnimation(); // Mulai marquee setelah mengetik
         }
     }, 100); // Kecepatan mengetik
 }
 
+function startMarqueeAnimation() {
+    const display = document.getElementById("display");
+    display.style.animation = 'marquee 10s linear infinite'; // Mulai marquee
+}
+
 function calculate() {
     const display = document.getElementById("display");
-    const expression = display.value;
+    const expression = display.textContent;
 
     let result;
     if (expression.includes('+')) {
