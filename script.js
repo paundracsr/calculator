@@ -1,38 +1,39 @@
 function appendToDisplay(value) {
-    const display = document.getElementById("display");
-    display.textContent += value;
+    const displayText = document.getElementById("display-text");
+    if (displayText.textContent === '0') {
+        displayText.textContent = value;
+    } else {
+        displayText.textContent += value;
+    }
 }
 
 function clearDisplay() {
-    const display = document.getElementById("display");
-    display.textContent = '0'; // Reset display
-    display.style.animation = 'none'; // Hentikan animasi
+    const displayText = document.getElementById("display-text");
+    displayText.textContent = '0'; // Reset ke nilai awal
+    displayText.style.animation = 'none'; // Hentikan animasi
+    void displayText.offsetWidth; // Trik untuk mereset animasi
+    displayText.style.animation = 'marquee 10s linear infinite'; // Mulai ulang animasi marquee
 }
 
 function updateDisplayWithAnimation(text) {
-    const display = document.getElementById("display");
-    display.textContent = ''; // Reset sebelum animasi
+    const displayText = document.getElementById("display-text");
+    displayText.textContent = ''; // Reset sebelum animasi
 
     let i = 0;
     const typingInterval = setInterval(() => {
         if (i < text.length) {
-            display.textContent += text.charAt(i); // Animasi ketik
+            displayText.textContent += text.charAt(i); // Animasi ketik
             i++;
         } else {
             clearInterval(typingInterval);
-            startMarqueeAnimation(); // Mulai marquee setelah mengetik
+            displayText.style.animation = 'marquee 10s linear infinite'; // Mulai marquee
         }
     }, 100); // Kecepatan mengetik
 }
 
-function startMarqueeAnimation() {
-    const display = document.getElementById("display");
-    display.style.animation = 'marquee 10s linear infinite'; // Mulai marquee
-}
-
 function calculate() {
-    const display = document.getElementById("display");
-    const expression = display.textContent;
+    const displayText = document.getElementById("display-text");
+    const expression = displayText.textContent;
 
     let result;
     if (expression.includes('+')) {
