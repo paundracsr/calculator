@@ -54,3 +54,4 @@ function calculate() {
 
     updateDisplayWithAnimation(result); // Tampilkan hasil dengan animasi
 }
+ 
